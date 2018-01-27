@@ -1,10 +1,10 @@
 #include "FolderIO.h"
-#include <dirent.h>
-#include <direct.h>
-#include <sys/stat.h>
+#include <string>
 
 FolderIO::FolderIO()
-	:completedFiles(0)
+	:dir(NULL)
+	,entry(NULL)
+	,completedFiles(0)
 {}
 
 FolderIO::~FolderIO()
@@ -59,10 +59,6 @@ void FolderIO::readFolder(const char * path, std::ifstream & in)
 void FolderIO::writeFolder(const char * path, std::ofstream & output)
 {
 
-	DIR * dir = NULL;
-	struct dirent *entry = NULL;
-	struct stat info;
-
 	char flag;
 	char * openFolder = NULL;
 	dir = opendir(path);
@@ -104,8 +100,8 @@ void FolderIO::writeFolder(const char * path, std::ofstream & output)
 			}
 		}
 	}
-    delete[] openFolder;
-    closedir(dir);
+	 delete[] openFolder;
+	 //closedir(dir);
 }
 
 void FolderIO::createFolder(const char * folderName)

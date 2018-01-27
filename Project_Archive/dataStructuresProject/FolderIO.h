@@ -2,6 +2,9 @@
 #define __FOLDER__INPUT__OUTPUT__HEADER__INCLUDED__
 
 #include <fstream>
+#include <dirent.h>
+#include <direct.h>
+#include <sys/stat.h>
 #include "ZipFile.h"
 #include "UnzipFile.h"
 
@@ -21,6 +24,9 @@ private:
 	void createFolder(const char *);
 
 private:
+	DIR * dir;
+	struct dirent *entry;
+	struct stat info;
 	unsigned short completedFiles;
 };
 

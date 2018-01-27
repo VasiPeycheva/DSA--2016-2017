@@ -12,12 +12,9 @@
 *
 */
 
-#define _CRTDBG_MAP_ALLOC  
-#include <stdlib.h>  
-#include <crtdbg.h>  
-
 #include <iostream>
 #include "Archive.h"
+
 
 int main(int argc, char** argv)
 {

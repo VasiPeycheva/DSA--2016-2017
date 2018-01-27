@@ -12,7 +12,6 @@ public:
 	~UnzipFile();
 
 	bool unzip(const char *, std::ifstream&);
-	const char * getFileName();
 
 //functions for the reading
 private:

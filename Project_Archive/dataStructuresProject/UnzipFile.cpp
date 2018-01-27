@@ -23,11 +23,6 @@ bool UnzipFile::unzip(const char * path, std::ifstream & input)
 	return true;
 }
 
-const char * UnzipFile::getFileName()
-{
-	return fileName;
-}
-
 void UnzipFile::readFileName(std::ifstream & input)
 {
 	unsigned int size;
@@ -110,12 +105,12 @@ char UnzipFile::getChar(const node *&root)
 		if (readBit())
 		{
 			const node * rightChild = root->right;
-			getChar(rightChild);
+			return getChar(rightChild);
 		}
 		else
 		{
 			const node * leftChild = root->left;
-			getChar(leftChild);
+			return getChar(leftChild);
 		}
 	}
 }
